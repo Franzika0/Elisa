@@ -16,4 +16,4 @@ git pull origin
 
 git mv
 
-https://franzika0.github.io/Elisa/
+https://franzika0.github.io/Elisa/dist/
