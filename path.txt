@@ -1,0 +1,17 @@
+cd C:/GitHub/Elisa
+
+git status
+
+git add
+
+git commit -m''
+
+git push origin
+
+git rm
+
+git commit -m''
+
+git pull origin
+
+git mv
