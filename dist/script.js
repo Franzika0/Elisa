@@ -1,19 +1,55 @@
 'use strict'
 
-var Nwords = [
-"111",
-"222",
-"333",
-"444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-"555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555",
-"6",
-"7"];
-
-
 var UNwords = [
-"aaa",
-"bbb",
-"ccc"];
+  "嗨朋友",
+  "你好啊~",
+  "跟你說，我今天氣炸",
+  "你今天氣炸",
+  "恩，今天幾個垃圾在公園他喵的在玩丟石頭",
+  "今天你附近的丟垃圾時間約在晚上八點，那一定是很快樂的時光",
+  "謝謝妳齁，阿不過是好玩個屁?你知道他們丟誰石頭嗎!?",
+  "不客氣啦~那一定是很快樂的時光。是誰呢?",
+  "是我欸，他們覺得這樣很好玩嗎?",
+  "是你欸，那一定是很快樂的時光。",
+  "......",
+  "是你欸，那一定是很快樂的時光。",
+  "感覺回收廠的居住環境還不錯，挺適合你的",
+  "我也覺得很讚~挺適合我的",
+  "等我一下，拿個東西",
+  "隨時歡迎你回來",
+  "來了~就這個，在這之前我可以先用石頭為你做裝扮，不收你錢",
+  "相信一定很美，真是好好的店家~",
+  "阿對了，剛才到現在是聊天服務，一樣不收你錢，你回完話我就送你上路",
+  "真是好好的店家~我回完話你就........",
+  "(使用者已離線)",
+  "(Elisa已離線)"
+];
+
+
+var Nwords = [
+  "哈囉",
+  "你好啊~",
+  "我今天很開心，跟家人一起吃了生日大餐~",
+  "也替你感到高興~生日快樂!",
+  "謝謝你",
+  "不客氣啦~",
+  "那間店叫XXX，體驗起來感覺真的很不錯",
+  "我也覺得很讚~",
+  "尤其店裡室內的裝扮我真的很喜歡",
+  "相信一定很美",
+  "對了，你知道我還遇到誰嗎?",
+  "是誰呢?",
+  "是我國中最好的朋友!好久沒跟他當面聚一聚了，見到他真高興~",
+  "是你國中最好的朋友!也替你感到高興~",
+  "他還說下次去他店裡買十件衣服不收我錢，他人也太好~",
+  "真是好好的店家~他人也太好~",
+  "是阿~阿我先去丟個垃圾，等我一下",
+  "今天你附近的丟垃圾時間約在晚上八點，隨時歡迎你回來",
+  "謝啦，等等見",
+  "不客氣啦~等等見~",
+  "(使用者已離線)",
+  "(Elisa已離線)"
+];
 
 
 
@@ -92,6 +128,11 @@ class MsgBoard extends React.Component {
         num: this.state.num + 1,
         cvst: joined }));
 
+      if(this.state.version == UNwords && this.state.num == 19){
+        document.getElementById('Sound').currentTime = '0';
+        document.getElementById('Sound').play();
+      }
+
     }
 
   }
@@ -127,8 +168,8 @@ class MsgBoard extends React.Component {
 
     return /*#__PURE__*/(
       React.createElement("div", { id: "size"}, /*#__PURE__*/
-      React.createElement("div", { id: "keyword", onClick: this.keywordctrl }, "\u95DC\u9375\u8A5E"), /*#__PURE__*/
-
+      React.createElement("div", { id: "keyword", onClick: this.keywordctrl }, "\u95DC\u9375\u8A5E"),/*#__PURE__*/
+      React.createElement("audio", { id: "Sound", src:"../assets/bgm.mp3" }),
 
       React.createElement("div", { id: "btnbox" }, /*#__PURE__*/
       React.createElement("button", { class: "btn", id: "n", onClick: this.changeNwords }, "\u6B63\u5E38\u5C0D\u8A71"), /*#__PURE__*/
