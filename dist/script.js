@@ -97,6 +97,30 @@ class User extends React.Component {
 
 
 
+class Mask extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+    this.words = "老師好，網站裡奇怪對話有聲音喔，然後這只是簡單的網頁互動不是機器人，"
++"操作方面選擇對話然後點擊中間方格就可以看到對話了，最後祝老師天天開心～";
+  }
+
+  render(){
+    return(
+
+      React.createElement("div", {id: "Mask"},
+
+      React.createElement("div", {id: "Main_Txt"},this.words),
+      React.createElement("div", {id: "Under_Txt"},"請點擊空白處關閉"))
+
+    );
+  }
+}
+
+
+
 
 
 
@@ -129,7 +153,7 @@ class MsgBoard extends React.Component {
         cvst: joined }));
 
       if(this.state.version == UNwords && this.state.num == 19){
-        document.getElementById('Sound').currentTime = '0';
+        document.getElementById('Sound').currentTime = '1.5';
         document.getElementById('Sound').play();
       }
 
@@ -169,7 +193,7 @@ class MsgBoard extends React.Component {
     return /*#__PURE__*/(
       React.createElement("div", { id: "size"}, /*#__PURE__*/
       React.createElement("div", { id: "keyword", onClick: this.keywordctrl }, "\u95DC\u9375\u8A5E"),/*#__PURE__*/
-      React.createElement("audio", { id: "Sound", src:"../assets/bgm.mp3" }),
+      React.createElement("audio", { id: "Sound", src:"../assets/bgm.m4a" }),
 
       React.createElement("div", { id: "btnbox" }, /*#__PURE__*/
       React.createElement("button", { class: "btn", id: "n", onClick: this.changeNwords }, "\u6B63\u5E38\u5C0D\u8A71"), /*#__PURE__*/
@@ -191,8 +215,36 @@ function updateScroll() {
 }
 
 
+
+
+
+class System extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+    this.close = this.close.bind(this);
+  }
+
+  close(){
+    document.getElementById('Mask').classList.add('nono');
+  }
+
+  render(){
+    return(
+
+      React.createElement("div", {id: "System",onClick:this.close},
+
+      React.createElement(MsgBoard, { version: Nwords }),
+      React.createElement(Mask))//,{onClick:this.close}
+
+    );
+  }
+}
+
 ReactDOM.render( /*#__PURE__*/
-React.createElement(MsgBoard, { version: Nwords }),
+React.createElement(System),
 document.getElementById('root'));
 
 /*var messageBody = document.querySelector('#MsgBoard');
